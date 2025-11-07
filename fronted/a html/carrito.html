@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito | Vaquilier</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="js/carrito.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>Vaquilier</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="productos.html">Productos</a>
+      <a href="tarot.html">Tiradas</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="carrito.html"> Comprar🛒</a>
+    </nav>
+  </header>
+
+  <section id="carritoSection">
+    <div class="carritoHeader">
+      <h2>Tu Carrito de Compras 🛍️</h2>
+      <p>Revisá tus productos antes de confirmar la compra.</p>
+    </div>
+
+    <div class="carritoContainer">
+      <table id="tablaCarrito">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="carritoItems">
+          <!-- Los productos se cargan por JS -->
+        </tbody>
+      </table>
+
+      <div class="carritoResumen">
+        <h3>Total: $<span id="totalCarrito">0</span></h3>
+        <button id="btnFinalizar">Finalizar compra ✨</button>
+      </div>
+    </div>
+  </section>
+<!-- Mini Carrito Emoji -->
+<div id="miniCarrito" class="mini-carrito-emoji">
+  <span class="emoji-carrito" title="Ver carrito">🛒</span>
+  <div class="carrito-desplegable">
+    <h4>Tu carrito</h4>
+    <ul id="miniListaCarrito"></ul>
+    <p>Total: $<span id="miniTotal">0</span></p>
+    <a href="carrito.html" class="btn">Ir al carrito</a>
+  </div>
+</div>
+  <footer>
+    <p>© 2025 Vaquilier • Energía y propósito en cada detalle 🌙</p>
+  </footer>
+
+</body>
+</html>

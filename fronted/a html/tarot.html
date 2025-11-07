@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tiradas de Tarot • Vaquilier</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const botones = document.querySelectorAll("button");
+
+  botones.forEach(boton => {
+    boton.addEventListener("click", (e) => {
+      const card = e.target.closest(".productoItem, .tarotItem");
+      if (!card) return;
+
+      const nombre = card.querySelector("h4")?.textContent || "Producto sin nombre";
+      const precioTexto = card.querySelector(".precio")?.textContent || "$0";
+      const precio = parseInt(precioTexto.replace("$", "").replace(".", "").trim()) || 0;
+
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+      const existente = carrito.find(p => p.nombre === nombre);
+      if (existente) {
+        existente.cantidad += 1;
+      } else {
+        carrito.push({ nombre, precio, cantidad: 1 });
+      }
+
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+
+      // Animación visual para confirmar
+      const aviso = document.createElement("div");
+      aviso.textContent = "✨ Agregado al carrito";
+      aviso.className = "mensajeCarrito";
+      document.body.appendChild(aviso);
+      setTimeout(() => aviso.remove(), 1800);
+    });
+  });
+});
+</script>
+
+<body>
+  <header>
+    <h1>Vaquilier</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="productos.html">Productos</a>
+      <a href="tarot.html" class="activo">Tiradas</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="carrito.html"> Comprar🛒</a>
+    </nav>
+  </header>
+
+  <section id="tarot">
+    <div class="tarotHeader">
+      <h2>Tiradas de Tarot 🌙</h2>
+      <p>Conectá con tu intuición y recibí una lectura personalizada.</p>
+    </div>
+
+    <div class="tarotGrid">
+      <div class="tarotItem">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b9642735" alt="Tirada del Amor">
+        <h4>Tirada del Amor ❤️</h4>
+        <p>Explorá tus vínculos afectivos y energías del corazón.</p>
+        <p class="precio">$6.000</p>
+        <button>Solicitar tirada 🔮</button>
+      </div>
+
+      <div class="tarotItem">
+        <img src="https://images.unsplash.com/photo-1606425271425-9838e5e2fc00" alt="Tirada de Propósito">
+        <h4>Tirada de Propósito ✨</h4>
+        <p>Descubrí tus caminos y bloqueos espirituales.</p>
+        <p class="precio">$7.000</p>
+        <button>Solicitar tirada 🔮</button>
+      </div>
+
+      <div class="tarotItem">
+        <img src="https://images.unsplash.com/photo-1622675363314-f4cc6cf2a93f" alt="Tirada Lunar">
+        <h4>Tirada Lunar 🌕</h4>
+        <p>Lectura energética según la fase actual de la luna.</p>
+        <p class="precio">$5.500</p>
+        <button>Solicitar tirada 🔮</button>
+      </div>
+    </div>
+  </section>
+<!-- Mini Carrito Emoji -->
+<div id="miniCarrito" class="mini-carrito-emoji">
+  <span class="emoji-carrito" title="Ver carrito">🛒</span>
+  <div class="carrito-desplegable">
+    <h4>Tu carrito</h4>
+    <ul id="miniListaCarrito"></ul>
+    <p>Total: $<span id="miniTotal">0</span></p>
+    <a href="carrito.html" class="btn">Ir al carrito</a>
+  </div>
+</div>
+<script src="js/carrito.js"></script>
+<script src="main.js"></script>
+  <footer>
+    <p>© 2025 Vaquilier • Guía, energía y conexión interior 🌙</p>
+  </footer>
+</body>

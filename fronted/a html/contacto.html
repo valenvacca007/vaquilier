@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Productos • Vaquilier</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="navbar">
+  <h1 class="logo">Vaquilier</h1>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="productos.html" class="active">Productos</a>
+    <a href="tarot.html">Tiradas</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="carrito.html"> Comprar🛒</a>
+  </nav>
+</header>
+
+  <!-- ========================================== -->
+  <!-- SECCIÓN CONTACTO -->
+  <section id="contacto">
+    <div class="contactoContainer">
+      <div class="contactoTexto">
+        <h2>Contacto</h2>
+        <p>Escribime para consultas, reservas o colaboraciones <span>🌙</span></p>
+        <p>Podés completar el formulario o escribirme directamente a mi <strong>WhatsApp</strong>:</p>
+        <a href="https://wa.me/5491131412869" target="_blank" class="btnBanner">💬 Ir a WhatsApp</a>
+      </div>
+
+      <form id="contactoForm" class="formContacto">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu correo" required>
+        <textarea name="mensaje" rows="4" placeholder="Tu mensaje..." required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Vaquilier • Conectando energía y propósito ✨</p>
+  </footer>
+  <!-- Mini Carrito Flotante -->
+<!-- Mini Carrito Emoji -->
+<div id="miniCarrito" class="mini-carrito-emoji">
+  <span class="emoji-carrito" title="Ver carrito">🛒</span>
+  <div class="carrito-desplegable">
+    <h4>Tu carrito</h4>
+    <ul id="miniListaCarrito"></ul>
+    <p>Total: $<span id="miniTotal">0</span></p>
+    <a href="carrito.html" class="btn">Ir al carrito</a>
+  </div>
+</div>
+<script src="main.js"></script>
+<script src="js/carrito.js"></script>
+
+</body>
