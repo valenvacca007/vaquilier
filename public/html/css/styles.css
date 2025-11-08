@@ -26,21 +26,21 @@ nav a {
 }
 
 header {
-    position: fixed; /* la hace fija */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     background: #5a3b61;
     padding: 15px;
     text-align: center;
-    z-index: 999; /* para que quede encima de todo */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* opcional, para dar profundidad */
+    z-index: 999; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
 }
 
-/* Para que el contenido debajo no quede tapado */
+
 body {
     margin: 0;
-    padding-top: 80px; /* ajusta según la altura de tu header */
+    padding-top: 80px; 
     font-family: 'Poppins', sans-serif;
     background: #f6f2ea;
     color: #4a3b34;
@@ -435,9 +435,7 @@ footer {
     align-items: center;
   }
 }
-/* =========================================================
-   PRODUCTOS
-   ========================================================= */
+
 /* =========================================================
    PRODUCTOS
    ========================================================= */

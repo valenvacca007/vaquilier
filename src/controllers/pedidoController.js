@@ -27,8 +27,8 @@ Nos estaremos comunicando para coordinar entrega o envío 🚚✨
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER,   // tu email Gmail
-        pass: process.env.EMAIL_PASS    // clave de aplicación
+        user: process.env.EMAIL_USER,   
+        pass: process.env.EMAIL_PASS    
       }
     });
 

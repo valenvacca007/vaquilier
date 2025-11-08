@@ -2,10 +2,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
 
-// Elemento donde se mostrará el producto
 const contenedor = document.getElementById("productoDetalle");
 
-// Función para obtener el producto desde la API
 async function cargarProducto() {
   try {
     const res = await fetch(`http://localhost:3000/api/productos/${productId}`);
@@ -37,7 +35,7 @@ async function cargarProducto() {
 
 cargarProducto();
 
-// ===== Función carrito (copiada de tu carrito.js) =====
+// ===== Función carrito  =====
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function agregarItem(nombre, precio) {

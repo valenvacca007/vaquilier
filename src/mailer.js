@@ -3,21 +3,20 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 dotenv.config();
 
-// Crear transporte de Gmail
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.GMAIL_USER,      // tu email
-    pass: process.env.GMAIL_APP_PASS   // tu App Password de Gmail
+    user: process.env.GMAIL_USER,      
+    pass: process.env.GMAIL_APP_PASS   
   }
 });
 
 /**
- * Función para enviar un mail.
+ 
  * @param {Object} param0
- * @param {string} param0.para - email del destinatario
- * @param {string} param0.asunto - asunto del correo
- * @param {string} param0.html - contenido HTML del correo
+ * @param {string} param0.para 
+ * @param {string} param0.asunto 
+ * @param {string} param0.html 
  */
 export async function enviarMail({ para, asunto, html }) {
   try {

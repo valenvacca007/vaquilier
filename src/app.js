@@ -121,13 +121,13 @@ const startServer = async () => {
     process.exit(1);
   }
 };
-// Detalle dinámico de producto
+
 app.get("/producto/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    // Buscar producto en MongoDB
-    const Producto = mongoose.model("Producto"); // o importalo de tu modelo si lo tenés separado
+    
+    const Producto = mongoose.model("Producto"); 
     const producto = await Producto.findById(id);
 
     if (!producto) return res.status(404).send("Producto no encontrado");
