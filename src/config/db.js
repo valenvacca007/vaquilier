@@ -1,37 +1,26 @@
+import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import productRoute from "../routes/productRoute.js"; // import de tu router
+
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB conectado"))
-  .catch(err => console.error("Error de conexión", err));
-  import express from "express";
-import mongoose from "mongoose";
-import productRoutes from "./routes/productRoutes.js";
-
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Middleware para leer JSON
+// Middleware para parsear JSON
 app.use(express.json());
 
 // Rutas
-app.use("/api/products", productRoutes);
+app.use("/api/products", productRoute);
 
-// Conexión a MongoDB
-mongoose.connect("mongodb://localhost:27017/tu_basededatos")
-  .then(() => console.log("✅ Conectado a MongoDB"))
-  .catch((err) => console.error("❌ Error al conectar a MongoDB:", err));
-
-// Servidor
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
-});
-import mongoose from "mongoose";
-
+// Conectar a MongoDB
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
     console.log("✅ Conectado a MongoDB");
   } catch (error) {
     console.error("❌ Error de conexión a MongoDB:", error.message);
@@ -39,4 +28,9 @@ const connectDB = async () => {
   }
 };
 
-export default connectDB;
+// Iniciar servidor solo después de conectar a la DB
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+  });
+});
