@@ -1,9 +1,9 @@
-// src/models/categoryModel.js
-import mongoose from "mongoose"; // ✅ importar mongoose
+
+import mongoose from "mongoose";
 
 const categorySchema = new mongoose.Schema({
   nombre: { type: String, required: true },
-  descripcion: String
+  descripcion: { type: String }
 });
 
 export default mongoose.model("Categoria", categorySchema);
