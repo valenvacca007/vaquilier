@@ -51,7 +51,7 @@ proyecto-crud-mongodb/
 | **Categoría** | nombre, descripcion                                | CRUD completo                  |
 | **Usuario**   | nombre, email, password                            | Password encriptada con bcrypt |
 
-✅ Ejemplos JSON
+ Ejemplos JSON
 
 ✔ Crear Producto
 
@@ -79,9 +79,8 @@ proyecto-crud-mongodb/
   "email": "valen@gmail.com",
   "password": "123456"
 }
-
-✅ 🔌 Rutas (Endpoints CRUD)
-📌 Productos
+ Rutas (Endpoints CRUD)
+ Productos
 
 | Método | Ruta               | Descripción         | Body                                                |
 | ------ | ------------------ | ------------------- | --------------------------------------------------- |
@@ -98,23 +97,23 @@ Categorías
 | POST   | /api/usuarios | Crear usuario          |
 | POST   | /api/login    | Login → devuelve token |
 
-✅ 🚀 Cómo Ejecutar el Proyecto
-1️⃣ Clonar el repositorio
+ Cómo Ejecutar el Proyecto
+ Clonar el repositorio
 git clone https://github.com/valenvacca007/vaquilier.git
 
-2️⃣ Instalar dependencias
+ Instalar dependencias
 npm install
 
-3️⃣ Crear archivo .env en la raíz del proyecto
+ Crear archivo .env en la raíz del proyecto
 MONGO_URI="tu_conexion_a_MongoDB"
 GMAIL_USER="tu-mail@gmail.com"
 GMAIL_APP_PASS="tu-app-password"
 PORT=3000
 
-4️⃣ Ejecutar el servidor
+ Ejecutar el servidor
 npm start
 
-✅ 📨 Envío de Emails
+  Envío de Emails
 
 Al finalizar la compra:
 
@@ -126,7 +125,7 @@ Esto se realiza mediante:
 
 POST /api/pedidos/email
 
-✅ Autor
+ Autor
 
 Proyecto realizado por:
 Valentina Vacca – UTN
